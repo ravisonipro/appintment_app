@@ -19,7 +19,7 @@
         <th>Date</th>
         <th>Time</th>
         <th>Type</th>
-        <th>Receptionist ID</th>
+        <th>Receptionist name</th>
         <th>Symptoms</th>
       </tr>
     </thead>
@@ -32,7 +32,7 @@
         <td><%= a.appointment_date %></td>
         <td><%= time_convert(a.appointment_time) %></td>
         <td><%= a.appointment_type %></td>
-        <td><%= a.receptionist_id %></td>
+        <td><%= a.receptionist.name %></td>
         <td><%= a.symptoms %></td>
       </tr>
       <% s_no += 1 %>

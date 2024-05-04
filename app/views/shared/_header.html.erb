@@ -1,0 +1,43 @@
+<ul class="nav nav-tabs" style="position: relative;">
+  <% if current_user.present? && current_user.role == 'receptionist' %>
+    <li class="nav-item">
+      <%= link_to "Appointments", appointments_path, class: "btn nav-link nav-link" %>
+    </li>
+ 
+    <li class="nav-item">
+      <%= link_to "Create New Appointment", new_appointment_path, class: "btn nav-link nav-link" %>
+    </li>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger nav-link log-out" %>
+    </li>
+  <% end %>
+</ul>
+
+<style>
+  .form-border {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .btn {
+    margin-top: 2%;
+  }
+
+  .mb-3 {
+    margin-bottom: 1rem; 
+  }
+
+  .heading{
+    margin-bottom: 10px;
+  }
+  
+  .log-out{
+    position: absolute;
+    right: 0;
+    top: -26px; /* Corrected from 'up: 0;' */
+  }
+</style>

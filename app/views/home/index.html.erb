@@ -1,0 +1,61 @@
+<style>
+  body {
+    background-image: url('<%= asset_path('doc.png') %>'); /* Adjust the file name as needed */
+    background-size: cover; /* Adjust as needed */
+  }
+  
+  .logo {
+    width: 250px; /* Adjust as needed */
+    height: auto;
+    margin-left: 100px;
+    margin-top: -100px;
+  }
+  
+  .button-container {
+    margin-top: 50px; /* Adjust as needed */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Align buttons horizontally */
+    align-items: center;
+  }
+
+  .custom-btn {
+    margin-right: 20px; /* Adjust as needed */
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+
+  .sign-in-container {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+  }
+</style>
+
+<div class="container d-flex justify-content-center align-items-start flex-column" style="height: 100vh;">
+  <!-- Logo -->
+  <div class="mb-3">
+    <img src="<%= asset_path('logo.png') %>" alt="Logo" class="logo">
+  </div>
+
+  <!-- Buttons -->
+  <div class="button-container">
+    <% unless user_signed_in? %>
+      <div class="mb-3 text-center">
+        <%= link_to "Sign up as Doctor", signup_doctor_path, class: "btn btn-outline-dark btn-lg custom-btn" %>
+      </div>
+      <div class="mb-3 text-center">
+        <%= link_to "Sign up as Receptionist", signup_receptionist_path, class: "btn btn-outline-dark btn-lg custom-btn" %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Sign In Button -->
+  <div class="sign-in-container">
+    <div class="mb-3 text-center">
+      <% if !user_signed_in? %>
+        <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-dark btn-lg" %>
+      <% else %>
+        <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+</div>

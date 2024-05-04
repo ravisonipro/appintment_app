@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointments</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Appointments</h2>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>S.No</th>
+        <th>Patient Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Type</th>
+        <th>Receptionist ID</th>
+        <th>Symptoms</th>
+        <th>Doctor</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% s_no = 1 %>
+      <% @appointments.each do |a| %>
+      <tr>
+        <td><%= s_no %></td>
+        <td><%= a.patient.name %></td>
+        <td><%= a.appointment_date %></td>
+        <td><%= time_convert(a.appointment_time) %></td>
+        <td><%= a.appointment_type %></td>
+        <td><%= a.receptionist_id %></td>
+        <td><%= a.symptoms %></td>
+        <td><%= a.doctor.name %></td>
+        <!-- Action Buttons -->
+        <td>
+          <a href="/appointments/<%= a.id %>" class="btn btn-info btn-sm">View</a>
+          <a href="/appointments/<%= a.id %>/edit" class="btn btn-primary btn-sm">Edit</a>
+          <a href="/appointments/<%= a.id %>" data-confirm="Are you sure?" data-method="delete" rel="nofollow" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+      <% s_no += 1 %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

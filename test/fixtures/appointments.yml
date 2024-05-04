@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appointment_date: 2024-05-04
+  appointment_time: 2024-05-04 06:48:58
+  appointment_type: MyString
+  doctor: one
+  patient: one
+  receptionist: one
+  symptoms: MyString
+
+two:
+  appointment_date: 2024-05-04
+  appointment_time: 2024-05-04 06:48:58
+  appointment_type: MyString
+  doctor: two
+  patient: two
+  receptionist: two
+  symptoms: MyString
